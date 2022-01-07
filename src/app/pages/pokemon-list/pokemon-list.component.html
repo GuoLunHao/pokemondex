@@ -1,0 +1,22 @@
+<nz-table
+  #pokemonTable
+  [nzData]="service.pokemonList"
+  [nzFrontPagination]="true"
+  [nzShowPagination]="true"
+  [nzScroll]="{ x: '1200px', y: '600px' }"
+>
+  <thead>
+    <tr>
+      <th>全国编号</th>
+      <th>宝可梦</th>
+      <th>属性</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of service.pokemonList">
+      <td>{{ data.id }}</td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.types[0]?.type?.name }}、{{ data.types[1]?.type?.name }}</td>
+    </tr>
+  </tbody>
+</nz-table>

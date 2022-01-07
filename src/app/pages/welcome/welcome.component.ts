@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { MainClient } from 'pokenode-ts';
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
@@ -9,7 +9,11 @@ export class WelcomeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const api = new MainClient();
+    const pokemons = await api.pokemon.getPokemonById(1);
+    console.log(pokemons);
+
   }
 
 }
